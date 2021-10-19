@@ -1,0 +1,30 @@
+#cont{
+    display: flex;
+    border: 1px solid red;
+}
+#cont>a{
+    margin-left: 50px;
+    padding-right: 150px;
+}
+#options{
+    display: flex;
+}
+#options > a{
+    margin-left: 500px;
+    margin-right: 10px;
+}
+#options>input{
+    margin-left: 300px;
+    height: 30px;
+    width: 250px;
+    margin-top: 10px;
+}
+#options>button{
+    height: 36px;
+    margin-top: 10px;
+}
+#cont2{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    margin-left: 4%;
+}

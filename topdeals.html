@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+</head>
+<link rel="stylesheet" href="./styles/style.css">
+<body>
+    <div id="appen"></div>
+    <h2 style="margin-left: 5%;">Top Deals Here</h2>
+    <div id="cont2"></div>
+</body>
+</html>
+<script type="module">
+    import cont from './elements/ele.js'
+    let appen = document.getElementById('appen')
+    appen.innerHTML = cont()
+    import {getData, appenddata} from './elements/random.js'
+    let respnce = getData(`http://www.themealdb.com/api/json/v1/1/random.php`)
+    respnce.then((res)=>{
+        let cont2 = document.getElementById('cont2')
+        console.log(res)
+        appenddata(res.meals, cont2)
+    })
+    
+</script>
