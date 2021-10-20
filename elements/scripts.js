@@ -19,3 +19,16 @@ function appenddata(data, container){
 }
 
 export {getData, appenddata}
+ function seme(inp){
+        fetch(`http://www.themealdb.com/api/json/v1/1/search.php?s=${inp}`)
+        .then((res)=>{
+            return res.json()
+        })
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+export default seme

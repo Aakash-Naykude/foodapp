@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./styles/style.css">
 <body>
     <div id="appen"></div>
-    <h2>latest receipe</h2>
+    <h2 style="margin-left: 5%;">Top Deals Here</h2>
     <div id="cont2"></div>
 </body>
 </html>
@@ -18,29 +18,20 @@
     let appen = document.getElementById('appen')
     appen.innerHTML = cont()
 
+    let data = JSON.parse(localStorage.getItem("meal"))
+    console.log(data)
+    import seme from './elements/scripts.js'
 
-    let a = document.getElementById('searchmealbtn')
-    a.addEventListener('click', seme)
-    if(localStorage.getItem("meal") === null){
-        localStorage.setItem("meal", JSON.stringify([]));
-    }
-    
-    
-    function seme(){
-        let inp = document.getElementById('searchmeal').value
-        console.log(inp)
-        let productcart = JSON.parse(localStorage.getItem("meal"));
-        productcart.push(inp);
-        localStorage.setItem("meal", JSON.stringify(productcart));
-        window.location.href = "search.html"
-    }
+
 
     import {getData, appenddata} from './elements/scripts.js'
-    let respnce = getData(`http://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`)
+
+
+    let inp = data[data.length-1]
+    let respnce = getData(`http://www.themealdb.com/api/json/v1/1/search.php?s=${inp}`)
     respnce.then((res)=>{
         let cont2 = document.getElementById('cont2')
         console.log(res)
         appenddata(res.meals, cont2)
     })
-    
 </script>
