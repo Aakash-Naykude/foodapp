@@ -34,13 +34,16 @@
         localStorage.setItem("meal", JSON.stringify(productcart));
         window.location.href = "search.html"
     }
-
+    var sets;
+    let time = 9000;
     import {getData, appenddata} from './elements/scripts.js'
     let respnce = getData(`http://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`)
     respnce.then((res)=>{
         let cont2 = document.getElementById('cont2')
         console.log(res)
         appenddata(res.meals, cont2)
+        
     })
-    
+
+   
 </script>
